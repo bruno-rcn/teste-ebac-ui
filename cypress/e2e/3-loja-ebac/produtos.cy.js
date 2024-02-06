@@ -1,6 +1,8 @@
 /// <reference types="cypress"/>
 import produtosPage from "../../support/page-objects/produtos.page";
 
+const produtos = require('../../fixtures/produtos.json')
+
 describe('Funcionalidade: Produtos', () => {
 
     beforeEach(() => {
@@ -33,5 +35,16 @@ describe('Funcionalidade: Produtos', () => {
     it('Deve buscar um produto pelo nome com sucesso', () => {
         produtosPage.buscarProdutoNaListaPeloNome('Abominable Hoodie')
         cy.get('#tab-title-description > a').should('contain', 'Descrição')
+    });
+
+    it('Deve adicionar um produto ao carrinho', () => {
+        produtosPage.buscarProdutoNaListaPeloNome('Abominable Hoodie')
+        produtosPage.adicionarProdutoNoCarrinho('M', 'Blue', 2)
+        cy.get('.woocommerce-message').should('contain', '“Abominable Hoodie” foi adicionado no seu carrinho.')
+    });
+
+    it.only('Deve adicionar um produto ao carrinho - Utilizando massa de dados', () => {
+        produtosPage.buscarProdutoNaListaPeloNome(produtos[0].nomeProduto)
+        produtosPage.adicionarProdutoNoCarrinho(produtos[0].tamanhoProduto, produtos[0].cor, produtos[0].quantidade)
     });
 });
