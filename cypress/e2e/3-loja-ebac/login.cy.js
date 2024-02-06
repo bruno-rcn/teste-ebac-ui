@@ -43,4 +43,9 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2) > :nth-child(1)').should('contain', 'bruno.teste-9138')
     });   
 
+    it('Deve fazer login com sucesso - Utilizando comando customizado', () => {
+        cy.login('bruno.teste@ebac.com.br', '123456')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2) > :nth-child(1)').should('contain', 'bruno.teste-9138')
+    });   
+
 });
