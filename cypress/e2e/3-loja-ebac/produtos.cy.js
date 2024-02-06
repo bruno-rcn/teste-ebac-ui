@@ -1,4 +1,5 @@
 /// <reference types="cypress"/>
+import produtosPage from "../../support/page-objects/produtos.page";
 
 describe('Funcionalidade: Produtos', () => {
 
@@ -23,6 +24,14 @@ describe('Funcionalidade: Produtos', () => {
 
     it('Deve selecionar o ultimo produto da lista', () => {
         cy.get('.block-inner').last().click()
+        cy.get('#tab-title-description > a').should('contain', 'Descrição')
+    });
+
+
+    // Utilizando page objects
+
+    it('Deve buscar um produto pelo nome com sucesso', () => {
+        produtosPage.buscarProdutoNaListaPeloNome('Abominable Hoodie')
         cy.get('#tab-title-description > a').should('contain', 'Descrição')
     });
 });
