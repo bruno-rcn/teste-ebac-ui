@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker';
 describe('Feature: Products', () => {
 
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+        cy.visit('produtos/')
     })
 
     afterEach(() => {
