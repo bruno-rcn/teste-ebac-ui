@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --browser chrome"
+    "test": "npx cypress run --browser chrome",
+    "cy:dash": "colar o script do cypress cloud aqui"
   },
   "keywords": [],
   "author": "",
