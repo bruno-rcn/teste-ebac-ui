@@ -9,7 +9,7 @@ describe('Feature: Products', () => {
     })
 
     afterEach(() => {
-        // cy.screenshot()
+        cy.screenshot()
     });
 
     it('Select first product', () => {

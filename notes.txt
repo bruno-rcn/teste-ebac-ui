@@ -1,0 +1,71 @@
+Ebac Cypress testes UI
+----------------------
+
+Preparar o ambiente:
+- Instalar o Node.js
+	validar instalação: node --version
+- Instalar IDE (vscode)
+- Plugins recomendados: ES6 Mocha, Cypress Snippets
+
+Ferramentas:
+- Windows
+- Vscode
+- Node.js
+- Cypress
+- Git / Github
+
+
+Projeto:
+** OBS: para instalar as dependências em uma nova maquina: npm install
+
+- Abrir um terminal na pasta e executar
+	npm init -y (controlador de bibliotecas - arquivo: package.json)
+	npm install cypress (para instalar uma versão especifica utilizar cypress@versao. Ex: cypress@13.6.0)
+	npx cypress open (para abrir o dashboard do cypress)
+	escolher E2E testing
+	clicar continuar continuar
+	escolher o navegador
+	para o primeiro momento escolher a opção scaffold para ser criado alguns exemplos de testes
+
+- Para executar em modo headless: npx cypress run
+
+- Caso adicione scripts para testes com paramentros de execução no arquivo de packege.json em scripts, para executar com essas configurações deve rodar: npm run nome_do_script (ex: no projeto sera: npm run test)
+	
+Obs: Para buscar na documentação como configurar o relatório, digite na barra de busca: reporters
+
+- Para aceder ao cypress cloud:
+	npx cypress open
+	clicar em login na parte superior direita
+	clicar no link Cypress cloud
+	fazer o login de preferencia com a conta do GitHub para ficar tudo integrado
+	preencher as informações e clicar em continuar
+	clicar em connect project (no cypress dashboard)
+	selecionar a organização e projeto (que criou acima)
+	deixar como publico
+	copiar a linha de comando e executar no terminal da pasta do projeto
+	para rodar o cloud utilizar: npm run nome script (ex: no projeto sera: npm run cy:dash)
+	
+
+Seletores:
+para class utilizar . (Ex: .div .home - navegar na DOM: .pai .filho .filho-2 [nesse exemplo busca pelo item 2])
+	se fosse para selecionar id no lugar do ponto colocar #
+
+para selecionar elemento com um texto especifico: cy.contains('texto_desejado')
+
+
+para selecionar filho dentro do pai: cy.get('.pai .filho .filho-2')
+
+para selecionar filho dentro do pai também pode ser: cy.get('.pai').find('.filho')
+
+quando tiver 2 filhos dentro de uma classe pai: cy.get('.irmão + .irmao') [nesse caso tem 2 class com nome irmão e dessa maneira vai buscar pela segunda)
+	ou: cy.get('.irmao').next() [seleciona o proximo elemento]
+
+selecionar o 2 e capturar o 1: cy.get('.irmao').prev() [seleciona o elemento anterior]
+
+para validar qualquer coisa dentro de uma div por exemplo adiciona []: Ex: cy.get('[.div]').should('contain', 'qualquer_item')
+
+caso queira trabalhar com atributo como data-test adicionar colchetes e ele inteiro: Ex: cy.get('[data-test="div"]')
+
+Selecionar primeiro a class filho e depois a pai: cy.get('.filho-4').parent('[data-test="div"]')
+
+para trabalhar com select: cy.get('[name="opcao"]').select('opcao1') // pode ser pelo texto ou pelo value do select

@@ -9,7 +9,7 @@ describe('Feature: Signin up', () => {
     })
 
     afterEach(() => {
-        // cy.screenshot()
+        cy.screenshot()
     });
 
     it('Signin with success', () => {

@@ -10,7 +10,7 @@ describe('Feature: Login', () => {
     })
 
     afterEach(() => {
-        // cy.screenshot()
+        cy.screenshot()
     });
 
     it('Should do success login', () => {
