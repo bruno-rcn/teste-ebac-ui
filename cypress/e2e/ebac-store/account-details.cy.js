@@ -11,7 +11,7 @@ describe('Feature: Account details', () => {
     })
 
     afterEach(() => {
-        cy.screenshot()
+       // cy.screenshot()
     });
 
     it('Should complete details account with success', () => {
