@@ -13,6 +13,7 @@ Ferramentas:
 - Node.js
 - Cypress
 - Git / Github
+- Allure report
 
 
 Projeto:
@@ -31,6 +32,14 @@ Projeto:
 
 - Caso adicione scripts para testes com paramentros de execução no arquivo de packege.json em scripts, para executar com essas configurações deve rodar: npm run nome_do_script (ex: no projeto sera: npm run test)
 	
+- para adicionar o allure report - [ https://medium.com/engenharia-arquivei/relat%C3%B3rio-de-testes-com-allure-e-cypress-97064f40a08e ]
+    "e2e": "cypress run --env allure=true", // Script responsável pelo Cypress executar os testes.
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report", //  Script responsável pelo Allure gerar os relatórios de testes.
+    "test:allure": "npm run e2e && npm run report:allure" // Script responsável por unir/juntar os dois comandos criados acima e executar todos os testes e gerar o relatório em um único comando.
+
+
+
+
 Obs: Para buscar na documentação como configurar o relatório, digite na barra de busca: reporters
 
 - Para aceder ao cypress cloud:
