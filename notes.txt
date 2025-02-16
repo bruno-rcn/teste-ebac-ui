@@ -78,3 +78,17 @@ caso queira trabalhar com atributo como data-test adicionar colchetes e ele inte
 Selecionar primeiro a class filho e depois a pai: cy.get('.filho-4').parent('[data-test="div"]')
 
 para trabalhar com select: cy.get('[name="opcao"]').select('opcao1') // pode ser pelo texto ou pelo value do select
+
+Passos para adicionar o Ci no git actions:
+	- apos ser criado a pasta e o arquivo yml, fazer o push para o repositorio
+
+name: End-to-end tests  // nome do projeto
+on: push // vai executar sempre que existir um push
+jobs:
+  cypress-run:
+    run-on: ubuntu-22.04 // vai executar em uma maquina ubunto
+    steps:
+      - name: Checkout // esse step baixa o projeto na maquina
+        uses: actions/checkout@v4
+      - name: Cypress run // esse step executa os tests
+        uses: cypress-io/github-action@v6
